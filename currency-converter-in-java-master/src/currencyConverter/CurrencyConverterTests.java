@@ -40,7 +40,11 @@ public class CurrencyConverterTests {
 
     @Test
     public void currencyConvert() {
+        double test1 = Currency.convert(-500d, 0.85d);
+        Assert.assertEquals(0.0, test1, 0.00001);
 
+        double test2 = Currency.convert(-500d, 0.-85d);
+        Assert.assertEquals(0.0, test2, 0.00001);
 
     }
 
