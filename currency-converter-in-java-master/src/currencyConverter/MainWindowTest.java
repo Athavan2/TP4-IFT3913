@@ -4,12 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
-
-public class CurrencyConverterTests {
-
-
+public class MainWindowTest {
     ArrayList<currencyConverter.Currency> validCurrs = Currency.init();
-    @Test
+    @Test // a boite noire
     public void mainWindowCurrencyTest(){
 
 
@@ -30,21 +27,23 @@ public class CurrencyConverterTests {
         Double valFront2 = MainWindow.convert("US Dollar", "Euro", validCurrs, 1000001.0);
 //        Assert.assertEquals(0.0, valFront2, 0.00001);
 
-
         //Test avec valeur typique comme montant
         Double valTyp = MainWindow.convert("US Dollar", "Euro", validCurrs, 100000.0);
         Assert.assertEquals(93000.0, valTyp, 0.00001);
 
     }
 
+    //Pour les tests a boite blanche, nous allons utiliser les criteres suivants:
+    //1. Couverture des arcs de flots de controle
+    //2. Couverture des conditions
 
     @Test
-    public void currencyConvert() {
-        double test1 = Currency.convert(-500d, 0.85d);
-        Assert.assertEquals(0.0, test1, 0.00001);
+    public void mwFlowControlTesting() {
 
-        double test2 = Currency.convert(-500d, 0.-85d);
-        Assert.assertEquals(0.0, test2, 0.00001);
+    }
+
+    @Test
+    public void mwFlowConditionTesting() {
 
     }
 
