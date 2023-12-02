@@ -1,5 +1,7 @@
-package currencyConverter;
+package test;
 import com.sun.tools.javac.Main;
+import currencyConverter.Currency;
+import currencyConverter.MainWindow;
 import org.junit.Assert;
 import org.junit.Test;
 

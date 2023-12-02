@@ -1,4 +1,5 @@
-package currencyConverter;
+package test;
+import currencyConverter.Currency;
 import org.junit.Assert;
 import org.junit.Test;
 
