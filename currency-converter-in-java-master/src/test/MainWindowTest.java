@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 public class MainWindowTest {
     ArrayList<currencyConverter.Currency> validCurrs = Currency.init();
+    ArrayList<currencyConverter.Currency> emptyCurrsList = new ArrayList<>();
     @Test // a boite noire
     public void mainWindowCurrencyTest(){
 
@@ -35,27 +36,34 @@ public class MainWindowTest {
     }
 
     //Pour les tests a boite blanche, nous allons utiliser les criteres suivants:
-    //1. Couverture des arcs de flots de controle
-    //2. Couverture des conditions
 
+
+
+    //1. Couverture des arcs de flots de controle
     @Test
     public void mwFlowControlTesting() {
-    // Teste si currency1 n'existe pas.
-    Double conv1 = MainWindow.convert("UK Dollar", "Euro",validCurrs, 1000.0);
-    Assertions.assertEquals(0.0, conv1, 0.00001);
+        // Teste si currency1 n'existe pas.
+        Double conv1 = MainWindow.convert("UK Dollar", "Euro",validCurrs, 1000.0);
+        Assertions.assertEquals(0.0, conv1, 0.00001);
 
-    // Teste si currency2 n'existe pas.
-    Double conv2 = MainWindow.convert("US Dollar", "Eurro",validCurrs, 1000.0);
+        // Teste si currency2 n'existe pas.
+        Double conv2 = MainWindow.convert("US Dollar", "Eurro",validCurrs, 1000.0);
         Assertions.assertEquals(0.0, conv2, 0.00001);
-    // Test si les 2 currencies existe.
-    Double conv3 = MainWindow.convert("Swiss Franc", "US Dollar",validCurrs, 1000.0);
-    Assertions.assertEquals(990.0, conv3, 0.00001);
-    }
 
+        // Test si les 2 currencies existe.
+        Double conv3 = MainWindow.convert("Swiss Franc", "US Dollar",validCurrs, 1000.0);
+        Assertions.assertEquals(990.0, conv3, 0.00001);
+
+        // Test si la liste de currencies est vide.
+        Double conv4 = MainWindow.convert("Swiss Franc", "US Dollar",emptyCurrsList, 1000.0);
+        Assertions.assertEquals(0.0, conv4, 0.00001);
+    }
+    //2. Couverture des conditions
     @Test
     public void mwFlowConditionTesting() {
 
     }
+
 
 
 
