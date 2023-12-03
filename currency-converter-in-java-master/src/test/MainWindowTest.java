@@ -1,9 +1,8 @@
 package test;
-import com.sun.tools.javac.Main;
 import currencyConverter.Currency;
 import currencyConverter.MainWindow;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 public class MainWindowTest {
@@ -20,7 +19,7 @@ public class MainWindowTest {
 
         //Test avec devise mal entree pour verifier notre hypothese
         Double test1 = MainWindow.convert("US Dollar", "Eurro", validCurrs, 100000.0);
-        Assert.assertEquals(0.0, test1, 0.00001);
+        Assertions.assertEquals(0.0, test1, 0.00001);
 
         //Test avec valeur frontiere comme montant
         Double valFront = MainWindow.convert("US Dollar", "Euro", validCurrs, -1.0);
@@ -31,7 +30,7 @@ public class MainWindowTest {
 
         //Test avec valeur typique comme montant
         Double valTyp = MainWindow.convert("US Dollar", "Euro", validCurrs, 100000.0);
-        Assert.assertEquals(93000.0, valTyp, 0.00001);
+        Assertions.assertEquals(93000.0, valTyp, 0.00001);
 
     }
 
